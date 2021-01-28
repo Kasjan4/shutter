@@ -65,7 +65,6 @@ const Topic = (props) => {
     </div>}
 
 
-    {photos && <h3 className="end-text" >You&apos;ve reached the end!</h3>}
 
 
 

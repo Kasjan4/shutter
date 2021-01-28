@@ -23,10 +23,10 @@ const Navbar = (props) => {
     event.preventDefault()
 
     if (option === 'photos') {
-      props.history.push(`/photos/${searchTerm}`)
+      props.history.push(`/shutter/photos/${searchTerm}`)
     }
     else if (option === 'videos') {
-      props.history.push(`/videos/${searchTerm}`)
+      props.history.push(`/shutter/videos/${searchTerm}`)
     }
   }
 
