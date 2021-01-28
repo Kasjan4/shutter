@@ -9,12 +9,15 @@ const env = process.env.NODE_ENV === 'production' ? (
 )
 
 module.exports = () => {
+  const publicPath = env.NODE_ENV === 'local' ? {
+    publicPath: '/'
+  } : {}
   return {
     entry: './src/index.js',
     output: {
       filename: 'bundle.js',
-      path: path.resolve('backend/dist'),
-      publicPath: '/'
+      path: path.resolve('.'),
+      ...publicPath
     },
     devtool: 'source-map',
     module: {
