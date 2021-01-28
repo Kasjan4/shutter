@@ -39,7 +39,7 @@ const Topics = () => {
 
 
       {topics.map((topic, index) => {
-        return <Link key={index} className="topic-wrapper" to={`/topic/${topic}`}>
+        return <Link key={index} className="topic-wrapper" to={`/shutter/topic/${topic}`}>
 
 
           <Fade delay={delays[Math.round(Math.random() * 3)]}>

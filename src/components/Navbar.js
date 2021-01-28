@@ -36,7 +36,7 @@ const Navbar = (props) => {
   return <nav className="navbar navbar-expand-md navbar-dark nav-background fixed-top">
 
     <Fade>
-      <Link to="/" className="title">{logo} SHUTTER</Link>
+      <Link to="/shutter" className="title">{logo} SHUTTER</Link>
     </Fade>
 
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -76,7 +76,7 @@ const Navbar = (props) => {
 
 
         <li className="nav-item">
-          <Link to="/editorschoice" className="nav-link">EDITORS CHOICE</Link>
+          <Link to="/shutter/editorschoice" className="nav-link">EDITORS CHOICE</Link>
         </li>
 
 

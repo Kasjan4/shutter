@@ -33,7 +33,7 @@ const Home = () => {
       </Fade>
 
       <Fade delay={400}>
-        <Link to={'/topics'} className="btn btn-md btn-secondary btn-home">EXPLORE</Link>
+        <Link to={'/shutter/topics'} className="btn btn-md btn-secondary btn-home">EXPLORE</Link>
       </Fade>
 
     </div>
