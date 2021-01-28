@@ -10,7 +10,7 @@ const env = process.env.NODE_ENV === 'production' ? (
 
 module.exports = () => {
   return {
-    entry: './frontend/index.js',
+    entry: './src/index.js',
     output: {
       filename: 'bundle.js',
       path: path.resolve('backend/dist'),
@@ -26,7 +26,7 @@ module.exports = () => {
       ]
     },
     devServer: {
-      contentBase: path.resolve('frontend'),
+      contentBase: path.resolve('src'),
       hot: true,
       open: true,
       port: 8001,
@@ -43,7 +43,7 @@ module.exports = () => {
       new Dotenv(),
       new webpack.HotModuleReplacementPlugin(),
       new HtmlWebpackPlugin({
-        template: 'frontend/index.html',
+        template: 'src/index.html',
         filename: 'index.html',
         inject: 'body'
       }),

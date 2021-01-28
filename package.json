@@ -8,7 +8,7 @@
     "frontend": "webpack-dev-server --mode=development --env.NODE_ENV=local",
     "buildwebpack": "webpack -p --env.NODE_ENV=production",
     "start": "node backend/server.js",
-    "serve:frontend": "webpack-dev-server --mode=development",
+    "serve:src": "webpack-dev-server --mode=development",
     "serve:backend": "pipenv run flask run",
     "build": "pipenv install; npm i; webpack -p",
     "serve:react": "webpack-dev-server",
