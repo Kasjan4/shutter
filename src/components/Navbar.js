@@ -39,6 +39,32 @@ const Navbar = (props) => {
       <Link to="/shutter" className="title">{logo} SHUTTER</Link>
     </Fade>
 
+    <Fade delay={200}>
+      <form className="form-inline my-2 my-lg-0 search-bar" onSubmit={handleSubmit} >
+
+        <input className="form-control mr-sm-2 search-input"
+          type="search"
+          placeholder={`Search ${option}`}
+          aria-label="Search"
+          value={searchTerm}
+          onChange={(event) => {
+            setSearchTerm(event.target.value)
+          }}
+        />
+
+
+        <select onChange={(event) => {
+          setOption(event.target.value)
+        }}>
+
+          <option >photos</option>
+          <option>videos</option>
+
+        </select>
+
+      </form>
+    </Fade>
+
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -46,31 +72,7 @@ const Navbar = (props) => {
     <div className="collapse navbar-collapse text-right" id="navbarResponsive">
       <ul className="navbar-nav ml-auto">
 
-        <Fade delay={200}>
-          <form className="form-inline my-2 my-lg-0 search-bar" onSubmit={handleSubmit} >
 
-            <input className="form-control mr-sm-2 search-input"
-              type="search"
-              placeholder={`Search ${option}`}
-              aria-label="Search"
-              value={searchTerm}
-              onChange={(event) => {
-                setSearchTerm(event.target.value)
-              }}
-            />
-
-
-            <select onChange={(event) => {
-              setOption(event.target.value)
-            }}>
-
-              <option >photos</option>
-              <option>videos</option>
-
-            </select>
-
-          </form>
-        </Fade>
 
 
 

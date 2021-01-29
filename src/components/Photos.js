@@ -4,28 +4,35 @@ import { Link } from 'react-router-dom'
 import Fade from 'react-reveal/Fade'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
-import $ from 'jquery'
+import * as ReactBootStrap from 'react-bootstrap'
 
 
 
 
 const Photos = (props) => {
-
+  const [loading, setLoading] = useState(false)
 
   const term = props.match.params.term
   const dl = <FontAwesomeIcon icon={faDownload} size="1x" />
   const delays = [200, 400, 600, 800]
 
   const [photos, setPhotos] = useState([])
+
   const [page, setPage] = useState('1')
 
   useEffect(() => {
-    axios.get(`https://pixabay.com/api/?key=17709445-39f19e5431043db22e3684797&q=${term}&image_type=photo&page=${page}`)
-      .then((resp) => {
-        const photos = resp.data
 
-        setPhotos(photos.hits)
-      })
+    try {
+      axios.get(`https://pixabay.com/api/?key=17709445-39f19e5431043db22e3684797&q=${term}&image_type=photo&page=${page}`)
+        .then((resp) => {
+          const photos = resp.data
+          setPhotos(photos.hits)
+        })
+      setLoading(true)
+
+    } catch (e) {
+      console.log(e)
+    }
 
   }, [term, page])
 
@@ -41,8 +48,9 @@ const Photos = (props) => {
 
   return <div className="search">
 
+    <div className="search-bg"></div>
 
-    {photos && <div className="photos-wrapper">
+    {loading ? (<div className="photos-wrapper">
 
       {photos.map((photo, index) => {
 
@@ -58,23 +66,19 @@ const Photos = (props) => {
 
       })}
 
+    </div>) : <div className="loader">
+        <ReactBootStrap.Spinner style={{ color: '#d9ae7b', width: '5rem', height: '5rem' }} animation="grow" />
+      </div>}
 
-
-
-
-
-    </div>}
-
-    <div className="pages">
-
-      <button className={page === '1' ? 'btn-page-active' : 'btn-page'} value="1" onClick={handlePage}>1</button>
-      <button className={page === '2' ? 'btn-page-active' : 'btn-page'} value="2" onClick={handlePage}>2</button>
-      <button className={page === '3' ? 'btn-page-active' : 'btn-page'} value="3" onClick={handlePage}>3</button>
-      <button className={page === '4' ? 'btn-page-active' : 'btn-page'} value="4" onClick={handlePage}>4</button>
-      <button className={page === '5' ? 'btn-page-active' : 'btn-page'} value="5" onClick={handlePage}>5</button>
-
-    </div>
-
+    <Fade>
+      {loading && <div className="pages">
+        <button className={page === '1' ? 'btn-page-active' : 'btn-page'} value="1" onClick={handlePage}>1</button>
+        <button className={page === '2' ? 'btn-page-active' : 'btn-page'} value="2" onClick={handlePage}>2</button>
+        <button className={page === '3' ? 'btn-page-active' : 'btn-page'} value="3" onClick={handlePage}>3</button>
+        <button className={page === '4' ? 'btn-page-active' : 'btn-page'} value="4" onClick={handlePage}>4</button>
+        <button className={page === '5' ? 'btn-page-active' : 'btn-page'} value="5" onClick={handlePage}>5</button>
+      </div>}
+    </Fade>
 
 
 

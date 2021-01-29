@@ -27,7 +27,6 @@ const App = () => (
       <Route exact path="/shutter" component={Home} />
       <Route exact path="/shutter/topics" component={Topics} />
       <Route exact path="/shutter/editorschoice" component={EC} />
-
       <Route exact path="/shutter/topic/:topic" component={Topic} />
       <Route exact path="/shutter/photos/:term" component={Photos} />
       <Route exact path="/shutter/videos/:term" component={Videos} />
